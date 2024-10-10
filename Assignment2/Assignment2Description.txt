@@ -1,0 +1,131 @@
+A. Implement a Sports Team Management System in C
+time limit per test1 second
+memory limit per test256 megabytes
+inputinput.txt
+outputoutput.txt
+Implement a Sports Team Management System in C.
+
+The goal of this assignment is to apply your knowledge of Structures, Arrays, and Enumerations in C to create a sports team management system. You will handle a team of players, with each player having different attributes including their position on the field. The system will allow the user to add players, delete players, display team details, and search for a specific player.
+
+It is important that your solution will make use of Structures and Enums to get a grade higher than 0.
+
+General Idea:
+
+Define a Player Position Enumeration: Define an enumeration Position that includes all possible positions a player can have (Goalkeeper, Defender, Midfielder, Forward).
+Define a Player Structure: Define a structure Player that should have the following attributes [unique ID, name, position (of Position enum type), age, and number of goals scored].
+Create an Array of Structures: Create an array of Player structures to store the player data for the entire team.
+Add Players: Implement a function to add new players to the team. Each player should have a unique ID, name, position, age, and number of goals scored. It is impossible to add a new player with an already existing ID, in such a case the program should print "Invalid inputs" to the output file and stop further reading. There are some rules for adding a new player:
+The name must start with a capital letter.
+The name should include from 2 to 15 symbols.
+The name must contain only English letters.
+ID must contain only digits.
+ID should be unique.
+Age is an integer not less than 18 and not greater than 100.
+The number of goals is less than 1000 and at least 0.
+In the input files, positions should be one of the following: {"Goalkeeper", "Defender", "Midfielder", "Forward"}.
+After a successful player addition, no output message is provided.
+Delete Players: Implement a function to delete a player from the team using the player's unique ID. In case of attempting to delete a player that does not exist, the Delete command must write "Impossible to delete" to the output file and continue reading the input file. If the player exists, it must be deleted from the team, and no output is needed.
+Display Team: Implement a function to display all the players in the team along with their details. If the team does not contain any players, a Display command must yield an "Invalid inputs" case. The Display format in the output file should be as follows:
+
+    ID: 10, Name: Munir, Position: Forward, Age: 30, Goals: 100
+    ID: 14, Name: Marko, Position: Forward, Age: 25, Goals: 15
+    
+Search Players: Implement a function to search for a specific player using the player's unique ID. Depending on the result of the search, the program should append "Found" or "Not found" to the output file and continue reading the input file.
+Update Player Info: Implement a function to update the information of a player using the player's unique ID. When trying to update a player that does not exist, the program should print "Invalid inputs" to the output file and stop program execution.
+Input
+input.txt file will contain multiple lines starting with commands like (Add, Delete, Update …) and ending with a Display command.
+
+All commands should start with an uppercase letter and should be followed by the arguments needed for the command.
+
+For example, the Add command needs ID, name, position, age, and the number of goals, so the command should appear in the text file as follows:
+
+
+Add
+7
+Ahmad
+Defender
+25
+10
+The Update command needs the same set of arguments as for the Add command.
+
+The Delete command needs the ID.
+
+The Search command needs the ID.
+
+The Display command does not need any arguments.
+
+In case if any argument is missing, the program should print "Invalid inputs" to the output file.
+
+It is guaranteed that the input file will contain at least one command.
+
+Output
+Your solution should be written to output.txt and it should end with a newline character.
+
+In case of an Invalid inputs, all the valid commands should be performed until the invalid command is reached. Nothing has to be written or performed after receiving the Invalid inputs message.
+
+Examples
+InputСкопировать
+Add
+7
+Ahmad
+Defender
+25
+10
+Update
+7
+Ahmad
+Defender
+26
+50
+Add
+1
+Munir
+Goalkeeper
+31
+89
+Delete
+7
+Display
+OutputСкопировать
+ID: 1, Name: Munir, Position: Goalkeeper, Age: 31, Goals: 89
+InputСкопировать
+Add
+1
+Alaa
+Forward
+25
+100
+Update
+1
+Munir
+Forward
+25
+100
+Search
+1
+Display
+OutputСкопировать
+Found
+ID: 1, Name: Munir, Position: Forward, Age: 25, Goals: 100
+InputСкопировать
+Add
+12
+Jay
+Forward
+25
+100
+Update
+12
+Munir
+Forward
+25
+100
+Search
+1
+Delete
+1
+Display
+OutputСкопировать
+Not found
+Impossible to delete
+ID: 12, Name: Munir, Position: Forward, Age: 25, Goals: 100
